@@ -6,7 +6,6 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @stocks }
     end
   end
 
@@ -96,6 +95,13 @@ class StocksController < ApplicationController
     end
   end
 
+  def report
+    @stocks = Stock.all
 
+    respond_to do |format| 
+      format.html
+      format.json { render json: @stocks }
+    end
+  end
 
 end

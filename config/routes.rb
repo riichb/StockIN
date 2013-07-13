@@ -1,8 +1,10 @@
 StockIN::Application.routes.draw do
   resources :stocks 
   
-
+  get 'report' => 'stocks#report', :as => :report
   post 'stocks/:id' => 'stocks#checkout', :as => :checkout
+
+
 
 
 
