@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @stock.name %>
@@ -9,7 +8,6 @@
   <b>Quantity:</b>
   <%= @stock.quantity %>
 </p>
-
 
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Destroy', @stock, method: :delete, data: { confirm: 'Are you sure?' } %> |
