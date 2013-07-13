@@ -1,5 +1,15 @@
 <h1>Listing stocks</h1>
 
+<div id="page">
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+  <%= yield %>
+</div>
+
 <table>
   <tr>
     <th>Name</th>
@@ -13,6 +23,7 @@
   <tr>
     <td><%= stock.name %></td>
     <td><%= stock.quantity %></td>
+    <td><%= link_to 'Checkout', stock, method: :checkout %></td>
     <td><%= link_to 'Show', stock %></td>
     <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
     <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>

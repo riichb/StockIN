@@ -1,5 +1,9 @@
 StockIN::Application.routes.draw do
-  resources :stocks
+  resources :stocks 
+  
+
+  match 'stocks/:id/checkout' => 'stocks#checkout', :as => 'checkout'
+
 
 
   # The priority is based upon order of creation:
