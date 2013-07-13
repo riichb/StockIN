@@ -1,0 +1,9 @@
+<h1>Updating Inventory</h1>
+
+<%= form_tag add_multiple_stocks_path, :method => :put do %>
+	<%= text_field(:stock, :id, :placeholder=>'Name') %>
+	<%= text_field(:stock, :quantity, :placeholder=>'# new', :size => 5) %>
+	<br/>
+	<br/>
+	<%= submit_tag "Update Inventory" %>
+<% end %>

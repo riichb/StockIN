@@ -104,4 +104,25 @@ class StocksController < ApplicationController
     end
   end
 
+  def add
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def add_multiple 
+    @stock = Stock.find(params[:stock]['id']) 
+    @new_quantity = params[:stock]['quantity'].to_i
+    
+    respond_to do |format|
+      if (@new_quantity <= 0)
+        format.html { render action: "add", notice: 'Invalid quantity' }
+      elsif @stock.update_attributes(:quantity => (@stock.quantity + @new_quantity))
+        format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
+      else
+        format.html { redirect_to stocks_url, notice: 'Failed to update inventory.' }
+      end
+    end
+  end
+
 end
