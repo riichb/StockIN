@@ -81,17 +81,21 @@ class StocksController < ApplicationController
     end
   end
 
+  # POST /stocks/1
   def checkout 
     @stock = Stock.find(params[:id])
 
     respond_to do |format|
       if @stock.quantity <= 0
-        format.html { redirect_to @stock, alert: 'No Inventory. ' }
+        format.html { redirect_to stocks_url, notice: 'No Inventory. ' }
       elsif @stock.update_attributes(:quantity => (@stock.quantity - 1))
         format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
       else
-        format.html { redirect_to stocks_url, alert: 'Failed to update inventory.' }
+        format.html { redirect_to stocks_url, notice: 'Failed to update inventory.' }
       end
     end
   end
+
+
+
 end

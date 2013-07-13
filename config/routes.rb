@@ -2,7 +2,7 @@ StockIN::Application.routes.draw do
   resources :stocks 
   
 
-  match 'stocks/:id/checkout' => 'stocks#checkout', :as => 'checkout'
+  post 'stocks/:id' => 'stocks#checkout', :as => :checkout
 
 
 
