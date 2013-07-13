@@ -1,0 +1,20 @@
+Lenovo T-400 | 020
+Mac Book Pro 13' | 120
+Lenovo T-410 | 202
+Linux Tower | 203
+HP monitor | 240
+Mac monitor | 210
+Mac Book Pro 15' | 430
+Mac Book Air | 0214
+iPad mini | 123
+iPad 3 | 432
+headset | 423
+ergonomic mouse  | 123
+ergonomic keyboard | 432
+mac keyboard | 312
+logitech mouse | 63
+ethernet dongle thunderbolt | 21
+thunderbolt dongle usb | 463
+iPhone 5 | 856
+HTC One | 123
+Google Nexus | 230
