@@ -125,4 +125,14 @@ class StocksController < ApplicationController
     end
   end
 
+  def search 
+    #@stocks = Stock.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    @stocks = Stock.all.map(&:name).compact.reject(&:blank?)
+
+    respond_to do |format| 
+      format.html
+      format.js
+    end
+  end
+
 end

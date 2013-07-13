@@ -1,6 +1,7 @@
 StockIN::Application.routes.draw do
   resources :stocks do 
     collection do 
+      get 'search', :as => :search
       post 'add', :as => :add
       put 'add_multiple', :as => :add_multiple
     end

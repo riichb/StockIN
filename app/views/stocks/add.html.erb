@@ -1,7 +1,7 @@
 <h1>Updating Inventory</h1>
 
 <%= form_tag add_multiple_stocks_path, :method => :put do %>
-	<%= text_field(:stock, :id, :placeholder=>'Name') %>
+	<%= select(:stock, :id, Stock.all.collect {|s| [ s.name, s.id ] }, {prompt: 'Select item name'}) %>
 	<%= text_field(:stock, :quantity, :placeholder=>'# new', :size => 5) %>
 	<br/>
 	<br/>
