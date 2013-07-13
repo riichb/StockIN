@@ -43,7 +43,7 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       if @stock.save
-        format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
+        format.html { redirect_to report_path, notice: 'Stock was successfully created.' }
         format.json { render json: @stock, status: :created, location: @stock }
       else
         format.html { render action: "new" }
@@ -59,7 +59,7 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       if @stock.update_attributes(params[:stock])
-        format.html { redirect_to @stock, notice: 'Stock was successfully updated.' }
+        format.html { redirect_to report_path, notice: 'Stock was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -75,7 +75,7 @@ class StocksController < ApplicationController
     @stock.destroy
 
     respond_to do |format|
-      format.html { redirect_to stocks_url }
+      format.html { redirect_to report_path }
       format.json { head :no_content }
     end
   end
