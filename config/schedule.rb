@@ -21,6 +21,6 @@
 
 set :output, 'log/cron.log'
 
-every 20.minute do 
+every 20.minutes do 
 	runner "UserMailer.weekly_report_email.deliver"
 end
