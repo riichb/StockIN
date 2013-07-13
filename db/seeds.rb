@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# stock data
+stock_file = File.open("#{Rails.root}/db/stock.txt")
+stock_file.read.each_line do |line|
+  name, quantity = line.chomp.split("|")
+
+  Stock.find_or_create_by_name!(:name => name, :quantity => quantity)
+end
+puts "Successfully seeded inventory."
