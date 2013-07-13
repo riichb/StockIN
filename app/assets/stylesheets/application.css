@@ -13,3 +13,7 @@
  *= require bootstrap-responsive
  *= require_tree .
  */
+
+.stockin {
+	color: #cccccc;
+}

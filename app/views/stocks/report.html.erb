@@ -2,16 +2,16 @@
 
 <%= flash[:notice] %>
 
-<table>
+<table class="table-bordered table-striped">
   <tr>
-    <th>Name</th>
-    <th>Quantity</th>
+    <th class="row-fluid ">Name</th>
+    <th class="row-fluid">Quantity</th>
   </tr>
 
 <% @stocks.each do |stock| %>
   <tr>
-    <td><%=link_to stock.name, stock %></td>
-    <td><%= stock.quantity %></td>
+    <td class="row-fluid"><%=link_to stock.name, stock %></td>
+    <td class="row-fluid"><%= stock.quantity %></td>
   </tr>
 <% end %>
 </table>
@@ -19,4 +19,4 @@
 <br />
 <br />
 
-<%= link_to 'Add new item', new_stock_path %>
+<%= link_to 'Add new item', new_stock_path, :class => "btn" %>
