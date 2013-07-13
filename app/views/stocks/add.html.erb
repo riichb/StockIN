@@ -1,9 +1,16 @@
+<div class="text-center">
 <h1>Updating Inventory</h1>
-
+<br/>
+<br/>
 <%= form_tag add_multiple_stocks_path, :method => :put do %>
 	<%= select(:stock, :id, Stock.all.collect {|s| [ s.name, s.id ] }, {prompt: 'Select item name'}) %>
 	<%= text_field(:stock, :quantity, :placeholder=>'# new', :size => 5) %>
 	<br/>
 	<br/>
-	<%= submit_tag "Update Inventory" %>
+	<%= submit_tag "Update Inventory", :class => "btn" %>
 <% end %>
+<br/>
+<br/>
+<br/>
+<%= link_to 'Add new item', new_stock_path, :class => "btn" %>
+</div>
