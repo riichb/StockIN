@@ -1,11 +1,22 @@
 StockIN::Application.routes.draw do
+<<<<<<< HEAD
   resources :users
 
 
   resources :stocks 
+=======
+  resources :stocks do 
+    collection do 
+      post 'add', :as => :add
+      put 'add_multiple', :as => :add_multiple
+    end
+  end
+  root :to => 'stocks#index'
+>>>>>>> 3eeab0fc5842b7ec08d2f63eb768a1eed3ed3b2f
   
-
-  match 'stocks/:id/checkout' => 'stocks#checkout', :as => 'checkout'
+  match 'add' => 'stocks#add', :as => :add
+  get 'report' => 'stocks#report', :as => :report
+  post 'stocks/:id' => 'stocks#checkout', :as => :checkout
 
 
 
