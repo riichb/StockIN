@@ -2,14 +2,20 @@
 
 <%= flash[:notice] %>
 
-<table class="table-bordered table-striped">
+<table class="table-bordered">
   <tr>
     <th class="row-fluid ">Name</th>
     <th class="row-fluid">Quantity</th>
   </tr>
 
 <% @stocks.each do |stock| %>
-  <tr>
+  <% if stock.quantity <= 1 %>
+    <tr class="empty">
+  <% elsif stock.quantity <= 15 %>
+    <tr class="low">
+  <% else %>
+    <tr class="good">
+  <% end %>
     <td class="row-fluid"><%=link_to stock.name, stock %></td>
     <td class="row-fluid"><%= stock.quantity %></td>
   </tr>

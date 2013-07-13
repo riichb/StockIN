@@ -17,3 +17,15 @@
 .stockin {
 	color: #cccccc;
 }
+
+.empty {
+	background-color: #EED6D6;
+}
+
+.low {
+	background-color: #FCF7DB;
+}
+
+.good {
+	background-color: #D8EDCE;
+}
