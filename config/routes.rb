@@ -12,7 +12,7 @@ StockIN::Application.routes.draw do
   root :to => 'stocks#index'
   
   match 'add' => 'stocks#add', :as => :add
-  get 'report' => 'stocks#report', :as => :report
+  # get 'report' => 'stocks#report', :as => :report
   post 'stocks/:id' => 'stocks#checkout', :as => :checkout
 
 
