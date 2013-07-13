@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :output, 'log/cron.log'
+
 every 1.minute do 
-	runner "UserMailer.weekly_report.deliver", :output => 'log/cron.log'
+	runner "UserMailer.weekly_report_email.deliver"
 end
