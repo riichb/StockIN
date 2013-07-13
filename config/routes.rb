@@ -1,4 +1,7 @@
 StockIN::Application.routes.draw do
+  resources :users
+
+
   resources :stocks 
   
 
