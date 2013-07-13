@@ -1,8 +1,16 @@
-<h1>Listing stocks</h1>
+<!DOCTYPE html>
+<head>
+<style media="screen" type="text/css">
+background-color: blue;
+text-align: center;
+</style>
+</head>
+<body>
+<h1 `style="color:red;background:black;"`>Listing stocks</h1>
 
 <%= flash[:notice] %>
 
-<table>
+<table class = "row-fluid">
   <tr>
     <th>Name</th>
     <th>Quantity</th>
@@ -15,14 +23,14 @@
   <tr>
     <td><%= stock.name %></td>
     <td><%= stock.quantity %></td>
-    <td><%= link_to 'Checkout', stock, method: :checkout %></td>
-    <td><%= link_to 'Show', stock %></td>
-    <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-    <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Checkout', stock, method: :checkout, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Stock', new_stock_path %>
+<br />
+
+</body>
+</html>
