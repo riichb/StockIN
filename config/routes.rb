@@ -1,10 +1,7 @@
 StockIN::Application.routes.draw do
-<<<<<<< HEAD
+
   resources :users
 
-
-  resources :stocks 
-=======
   resources :stocks do 
     collection do 
       get 'search', :as => :search
@@ -13,7 +10,6 @@ StockIN::Application.routes.draw do
     end
   end
   root :to => 'stocks#index'
->>>>>>> 3eeab0fc5842b7ec08d2f63eb768a1eed3ed3b2f
   
   match 'add' => 'stocks#add', :as => :add
   get 'report' => 'stocks#report', :as => :report
