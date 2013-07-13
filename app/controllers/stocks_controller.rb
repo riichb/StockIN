@@ -84,6 +84,10 @@ class StocksController < ApplicationController
   def checkout 
     @stock = Stock.find(params[:id])
 
+    if @stock.quantity <= 15
+      UserMailer.low_stock_email(@stock).deliver
+    end
+
     respond_to do |format|
       if @stock.quantity <= 0
         format.html { redirect_to stocks_url, notice: 'No Inventory. ' }
