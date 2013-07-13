@@ -1,15 +1,9 @@
 <!DOCTYPE html>
-<head>
-<style media="screen" type="text/css">
-background-color: blue;
-text-align: center;
-</style>
-</head>
 <body>
-<h1>Listing stocks</h1>
+<h1 class="text-center">Inventory Count</h1>
 
-<table>
-  <tr>
+<table class="table row-fluid">
+ <tr>
     <th>Name</th>
     <th>Quantity</th>
     <th></th>
@@ -18,12 +12,18 @@ text-align: center;
   </tr>
 
 <% @stocks.each do |stock| %>
-  <tr>
-    <td><%= stock.name %></td>
-    <td><%= stock.quantity %></td>
-    <td><%= link_to 'Checkout', stock, method: :checkout, :class => "btn" %></td>
+  <% if stock.quantity <= 1 %>
+    <tr class="empty">
+  <% elsif stock.quantity <= 15 %>
+    <tr class="low">
+  <% else %>
+    <tr class="good">
+  <% end %>
+    <td class="row-fluid"><%=link_to stock.name, stock %></td>
+    <td class="row-fluid"><%= stock.quantity %></td>
+    <td><%= link_to 'Checkout', stock, method: :checkout, :class => "btn btn-primary" %></td>
   </tr>
-<% end %>
+<% end %>    
 </table>
 
 <br />
