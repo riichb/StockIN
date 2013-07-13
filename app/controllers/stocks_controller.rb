@@ -90,11 +90,11 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       if @stock.quantity <= 0
-        format.html { redirect_to stocks_url, notice: 'No Inventory. ' }
+        format.html { redirect_to stocks_url, :flash => { :error => 'No Inventory. ' } }
       elsif @stock.update_attributes(:quantity => (@stock.quantity - 1))
         format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
       else
-        format.html { redirect_to stocks_url, notice: 'Failed to update inventory.' }
+        format.html { redirect_to stocks_url, :flash => { :error =>  'Failed to update inventory.' } }
       end
     end
   end
@@ -120,11 +120,11 @@ class StocksController < ApplicationController
     
     respond_to do |format|
       if (@new_quantity <= 0)
-        format.html { render action: "add", notice: 'Invalid quantity' }
+        format.html { redirect_to stocks_url, :flash => { :error => 'Invalid quantity' } }
       elsif @stock.update_attributes(:quantity => (@stock.quantity + @new_quantity))
         format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
       else
-        format.html { redirect_to stocks_url, notice: 'Failed to update inventory.' }
+        format.html { redirect_to stocks_url, :flash => { :error => 'Failed to update inventory.' } }
       end
     end
   end
