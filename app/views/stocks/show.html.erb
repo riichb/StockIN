@@ -9,6 +9,6 @@
   <%= @stock.quantity %>
 </p>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Destroy', @stock, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', stocks_url %>
+<%= link_to 'Edit', edit_stock_path(@stock), :class => "btn" %> 
+<%= link_to 'Destroy', @stock, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %> 
+<%= link_to 'Back', stocks_url, :class => "btn btn-inverse" %>

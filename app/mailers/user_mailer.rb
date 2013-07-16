@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "listockin@gmail.com"
+  default from: "listock@gmail.com"
   default to: "tsaelinh@linkedin.com"
   
   def welcome_email(user)
@@ -9,12 +9,12 @@ class UserMailer < ActionMailer::Base
 
   def low_stock_email(stock) 
   	@stock = stock
-  	mail(subject: @stock.name + ' low in stock.')
+  	mail(subject: @stock.name + 'low in stock.')
   end
 
   def weekly_report_email()
   	@stocks = Stock.all
 
-  	mail(subject: 'Weekly Report')
+  	mail(subject: 'Weekly Report' )
   end
 end
