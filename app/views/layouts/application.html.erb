@@ -14,26 +14,10 @@
 </head>
 <body>
 
-<button type="button" class="btn btn-large btn-block btn-danger" onclick ="javascript:ShowHide('HiddenDiv')" href="javascript:;">Need a hint?</button>
-	<div class="mid" id="HiddenDiv" style="DISPLAY: none" >
 <%= link_to 'Add new item', new_stock_path, :class => "btn btn-mini btn-info" %>
-<%= link_to 'Inventory Report', report_path, :class => "btn btn-mini btn-info" %>
-<%= link_to 'Bulk adding?', add_path, :class => "btn btn-mini btn-danger"%>	
-</div>
-	<script language="JavaScript">
-	function ShowHide(divId)
-	{
-	if(document.getElementById(divId).style.display == 'none')
-	{
-	document.getElementById(divId).style.display='block';
-	}
-	else
-	{
-	document.getElementById(divId).style.display = 'none';
-	}
-	}
-	</script>
-
+<%= link_to 'Report', report_path, :class => "btn btn-mini btn-info" %>
+<%= link_to 'Bulk adding', add_path, :class => "btn btn-mini btn-danger"%>	
+<%= link_to 'Bulk checkout', out_path, :class => "btn btn-mini btn-danger"%> 
 <%= yield %>
 
 </body>
