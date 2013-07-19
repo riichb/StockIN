@@ -1,0 +1,16 @@
+class StocksController < ApplicationController
+  def rails
+  end
+
+  def generate
+  end
+
+  def controller
+  end
+
+  def stocks
+  end
+
+  def land
+  end
+end

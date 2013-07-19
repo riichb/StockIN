@@ -15,7 +15,7 @@ StockIN::Application.routes.draw do
   match 'add' => 'stocks#add', :as => :add
   get 'report' => 'stocks#report', :as => :report
   post 'stocks/:id' => 'stocks#checkout', :as => :checkout
-
+  get 'land' => 'stocks#land'
 
 
   # The priority is based upon order of creation:
