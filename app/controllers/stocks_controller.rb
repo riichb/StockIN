@@ -5,7 +5,7 @@ class StocksController < ApplicationController
     @stocks = Stock.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # report.html.erb
     end
   end
 
@@ -88,7 +88,7 @@ class StocksController < ApplicationController
     end
 
     respond_to do |format|
-      if @stock.quantity <= 0
+      if @stock.quantity == 0
         format.html { redirect_to stocks_url, :flash => { :error => 'No Inventory. ' } }
       elsif @stock.update_attributes(:quantity => (@stock.quantity - 1))
         format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
@@ -133,7 +133,7 @@ class StocksController < ApplicationController
      @new_quantity = params[:stock]['quantity'].to_i
 
     respond_to do |format|
-      if (@new_quantity <= 0)
+      if (@stock.quantity <= 0)
         format.html { redirect_to stocks_url, :flash => { :error => 'Invalid quantity' } }
       elsif @stock.update_attributes(:quantity => (@stock.quantity - @new_quantity))
         format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
@@ -154,3 +154,4 @@ class StocksController < ApplicationController
   end
 
 end
+
