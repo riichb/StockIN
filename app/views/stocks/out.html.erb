@@ -1,0 +1,15 @@
+<div class="text-center">
+<h1>Bulk Checkout</h1>
+<br/>
+<br/>
+<%= form_tag out_multiple_stocks_path, :method => :put do %>
+        <%= select(:stock, :id, Stock.all.collect {|s| [ s.name, s.id ] }, {prompt: 'Select item name'}) %>
+        <%= text_field(:stock, :quantity, :placeholder=>'# new', :size => 5) %>
+        <br/>
+        <br/>
+        <%= submit_tag "Bulk Checkout", :class => "btn btn-danger" %>
+<% end %>
+<br/>
+<br/>
+<br/>
+</div>

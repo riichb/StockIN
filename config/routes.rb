@@ -7,6 +7,7 @@ StockIN::Application.routes.draw do
       get 'search', :as => :search
       post 'add', :as => :add
       put 'add_multiple', :as => :add_multiple
+      post 'out', :as => :out
       put 'out_multiple', :as => :out_multiple
    end
   end
@@ -15,7 +16,7 @@ StockIN::Application.routes.draw do
   get 'add' => 'stocks#add', :as => :add
   get 'report' => 'stocks#report', :as => :report
   post 'stocks/:id' => 'stocks#checkout', :as => :checkout
-  get 'add_multiple' => 'stocks#add_multiple', :as => :add_multiple 
+  get 'out' => 'stocks#out', :as => :out 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
