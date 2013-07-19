@@ -1,5 +1,5 @@
 <div class="text-center">
-<h1>Updating Inventory</h1>
+<h1>Bulk Add</h1>
 <br/>
 <br/>
 <%= form_tag add_multiple_stocks_path, :method => :put do %>
@@ -7,10 +7,10 @@
 	<%= text_field(:stock, :quantity, :placeholder=>'# new', :size => 5) %>
 	<br/>
 	<br/>
-	<%= submit_tag "Update Inventory", :class => "btn" %>
+        <%= submit_tag "Bulk Add", :class => "btn btn-danger" %>
 <% end %>
 <br/>
 <br/>
 <br/>
-<%= link_to 'Add new item', new_stock_path, :class => "btn" %>
+<%= link_to 'Add new item', new_stock_path, :class => "btn btn-info" %>
 </div>

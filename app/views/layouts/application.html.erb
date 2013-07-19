@@ -9,10 +9,30 @@
 
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
 
-  <h2 class="text-right stockin">LIIM</h2>
-  <h5 class="text-right stockin">LinkedIn Inventory Management</h5>
+  <h2><a href="/" class="text-right stockin">LIIM</a></h2>
+  <h5><a href="/" class="text-right stockin">LinkedIn Inventory Management</a></h5>
 </head>
 <body>
+
+<button type="button" class="btn btn-large btn-block btn-danger" onclick ="javascript:ShowHide('HiddenDiv')" href="javascript:;">Need a hint?</button>
+	<div class="mid" id="HiddenDiv" style="DISPLAY: none" >
+<%= link_to 'Add new item', new_stock_path, :class => "btn btn-mini btn-info" %>
+<%= link_to 'Inventory Report', report_path, :class => "btn btn-mini btn-info" %>
+<%= link_to 'Bulk adding?', add_path, :class => "btn btn-mini btn-danger"%>	
+</div>
+	<script language="JavaScript">
+	function ShowHide(divId)
+	{
+	if(document.getElementById(divId).style.display == 'none')
+	{
+	document.getElementById(divId).style.display='block';
+	}
+	else
+	{
+	document.getElementById(divId).style.display = 'none';
+	}
+	}
+	</script>
 
 <%= yield %>
 

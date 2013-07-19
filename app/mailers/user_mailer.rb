@@ -14,7 +14,6 @@ class UserMailer < ActionMailer::Base
 
   def weekly_report_email()
   	@stocks = Stock.all
-
   	mail(subject: 'Weekly Report' )
   end
 end

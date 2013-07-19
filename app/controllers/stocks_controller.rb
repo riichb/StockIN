@@ -83,7 +83,6 @@ class StocksController < ApplicationController
   # POST /stocks/1
   def checkout 
     @stock = Stock.find(params[:id])
-
     if @stock.quantity <= 15
       UserMailer.low_stock_email(@stock).deliver
     end
@@ -99,14 +98,14 @@ class StocksController < ApplicationController
     end
   end
 
-  # def report
-  #   @stocks = Stock.all
+   def report
+     @stocks = Stock.all
 
-  #   respond_to do |format| 
-  #     format.html
-  #     format.json { render json: @stocks }
-  #   end
-  # end
+     respond_to do |format| 
+       format.html
+       format.json { render json: @stocks }
+     end
+   end
 
   def add
     respond_to do |format|
@@ -127,6 +126,21 @@ class StocksController < ApplicationController
         format.html { redirect_to stocks_url, :flash => { :error => 'Failed to update inventory.' } }
       end
     end
+  end
+
+  def out_multiple
+    @stock = Stock.find(params[:stock]['id'])
+     @new_quantity = params[:stock]['quantity'].to_i
+
+    respond_to do |format|
+      if (@new_quantity <= 0)
+        format.html { redirect_to stocks_url, :flash => { :error => 'Invalid quantity' } }
+      elsif @stock.update_attributes(:quantity => (@stock.quantity - @new_quantity))
+        format.html { redirect_to stocks_url, notice: 'Successfully updated inventory.' }
+      else
+        format.html { redirect_to stocks_url, :flash => { :error => 'Failed to update inventory.' } }
+      end
+   end
   end
 
   def search 

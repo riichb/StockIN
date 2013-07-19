@@ -10,13 +10,12 @@ StockIN::Application.routes.draw do
       put 'out_multiple', :as => :out_multiple
    end
   end
-  root :to => 'stocks#index'
+  root :to => 'stocks#report'
   
-  match 'add' => 'stocks#add', :as => :add
+  get 'add' => 'stocks#add', :as => :add
   get 'report' => 'stocks#report', :as => :report
   post 'stocks/:id' => 'stocks#checkout', :as => :checkout
-  get 'land' => 'stocks#land'
-
+  get 'add_multiple' => 'stocks#add_multiple', :as => :add_multiple 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
